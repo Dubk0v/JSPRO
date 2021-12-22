@@ -1,0 +1,172 @@
+// const good = {
+//   title: "Bag",
+//   price: 100,
+
+//   getHTML() {
+//     return `<div class="goods-item"><h3>${this.title}</h3><p>${this.price}</p></div>`;
+//   }
+// }
+
+// ============================================
+
+// const emailSender = {
+//   email: 'example@mail.ru',
+//   subject: 'admin',
+
+//   send(message) {
+//     // РѕС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёСЏ
+//   }
+// }
+
+
+// const telegramSender = {
+//   nikname: '@MaksDeev',
+
+//   send(message) {
+//     // РѕС‚РїСЂР°РІРєР° СЃРѕРѕР±С‰РµРЅРёСЏ
+//   }
+// }
+
+// telegramSender.send('Hello')
+
+// ============================================
+
+
+
+// const person = {
+//   name: 'John',
+//   lastname: 'Doe',
+
+//   getFullName() {
+//     return `${this.name} ${this.lastname}`;
+//   }
+// }
+
+
+
+
+// const seller = {
+//   name: 'Kate',
+//   good: {
+//     price: 20,
+//     title: 'Bag'
+//   },
+
+//   sell() {
+//     console.log(`${this.getFullName()} РїСЂРѕРґР°Р» ${this.good.title} Р·Р° ${this.good.price} $`)
+//   },
+
+//   getPrice() {
+//     return this.good.price
+//   }
+// }
+
+// const buyer = {
+//   name: 'Boris',
+//   cash: 100,
+
+//   buy(seller) {
+//     if(this.cash >= seller.getPrice()) {
+//       seller.sell()
+//       console.log(`${this.getFullName()} РљСѓРїРёР» Сѓ ${seller.getFullName()}`);
+//       this.cash = this.cash - seller.getPrice();
+//       return;
+//     }
+//     console.log('РїРѕРєСѓРїРєР° РЅРµ РїСЂРѕРёР·РѕС€Р»Р°')
+//   }
+// }
+
+// seller.__proto__ = person;
+// buyer.__proto__ = person;
+
+
+// buyer.buy(seller)
+
+// ============================================
+
+// const senderPrototype = {
+//   send(message) {
+//     console.log(`subject: ${this.subject}, message: ${message}, email: ${this.email}`)
+//   }
+// }
+
+// function EmailSender(email, subject = 'Admin') {
+//   // this = { __proto__:senderPrototype};
+//   this.email = email;
+//   this.subject = subject;
+//   // return this
+// }
+
+// EmailSender.prototype = senderPrototype
+
+// const exampleSender = new EmailSender('example@gmal.com')
+// const secondSender = new EmailSender('second@gmal.com')
+
+// exampleSender.send('hello')
+// secondSender.send('bye')
+
+// ===============================================
+
+// class EmailSender {
+//   constructor(email, subject = 'Admin') {
+//     this.email = email;
+//     this.subject = subject;
+//   }
+
+//   send(message) {
+//     console.log(`subject: ${this.subject}, message: ${message}, email: ${this.email}`)
+//   }
+// }
+
+// const exampleSender = new EmailSender('example@gmal.com')
+// const secondSender = new EmailSender('second@gmal.com')
+
+// exampleSender.send('hello')
+// secondSender.send('bye')
+
+// console.log(exampleSender)
+
+
+// ======================================================
+
+class Sender {
+  constructor() {
+    
+  }
+
+  send(message) {
+    return `РѕС‚РїСЂР°РІР»РµРЅРѕ СЃРѕРѕР±С‰РµРЅРёРµ "${message}"`;
+  }
+}
+
+class EmailSender extends Sender {
+  constructor(email) {
+    super()
+
+    this.email = email;
+  }
+
+  send(msg) {
+    console.log(`${super.send(msg)} РїРѕ email: ${this.email}`)
+  }
+}
+
+// class TelegramSender extends Sender {
+//   constructor(subject, nickname) {
+//     super(subject)
+
+//     this.nickname = nickname;
+//   }
+
+//   send(msg) {
+//     console.log(`${super.send(msg)} РІ С‚РµР»РµРіСЂР°Рј: ${this.nickname}`)
+//   }
+// }
+
+// const s = new Sender('Admin')
+const se = new EmailSender('super@mail.com')
+// const st = new TelegramSender('User', '@MaksDeev')
+
+// s.send('hello')
+se.send('salut')
+// st.send('bonjoire')
