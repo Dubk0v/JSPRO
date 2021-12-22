@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="text-content" style="width: 300px">
+        'So where are you going now?'
+        'I'm going to meet a friend of mine at the department
+        'I'll see you next time.'
+        'Sure.' Bye.'
+    </div>
+
+    <div class="updatedText"></div>
+
+
+
+    <script>
+        let text = document.querySelector('.text-content');
+
+        function changeText() {
+            let str = text.textContent;
+            console.log(str);
+            //text.innerHTML = str.replace(/'/g, '"'); task 1
+            text.innerHTML = str.replace(/\B'|'\B/g, '"'); // task 2
+        }
+        changeText();
+
+    </script>
+</body>
+
+</html>
